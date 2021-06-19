@@ -30,7 +30,8 @@ cap=cv2.VideoCapture(0)
 
 # Change the width and height of camera
 # initialize width of cam as wCam and height of cam as hCam
-wCam,hCam=640,480
+(wCam,hCam)=(1280,720)
+cap.set(3,wCam)
 cap.set(4,hCam)
 pTime = 0
 plocX, plocY = 0, 0

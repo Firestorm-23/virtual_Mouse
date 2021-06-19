@@ -159,7 +159,7 @@ def main():
 
 
 
-        # Call FingersUp() method to know which finger is up
+        #Call FingersUp() method to know which finger is up
         # it will return a list containing 0m and 1
         # 0 indicates the finger is down
         # 1 indicates finger is up

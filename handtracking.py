@@ -27,10 +27,11 @@ if not cap.isOpened():
 while True:
     # CAPTURE IMAGE FRAME BY FRAME
     # RETURNS BOOL AND FRAME , TRUE IF FRAME IS READ CORRECTLY IN BGR FORMAT
-    success, img = cap.read();
+    success,img = cap.read();
 
     # CONVERT IMAGE TO RGB
-    imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB);
+    imgRGB = cv2.cvtColor(img,cv2.COLOR_BGR2RGB);
+
 
     #  THIS METHOD PERFORMS HAND LANDMARK ESTIMATION AND THIS METHOD EXPECTS RGB  FORMAT IMAGE
     results = hands.process(imgRGB)
@@ -46,39 +47,40 @@ while True:
                 # print(id,lm)
 
                 # we are taking height, width and channel
-                h, w, c = img.shape
+                h, w, c= img.shape
 
                 # Convert the different parameters into pixels
-                cx, cy = int(lm.x * w), int(lm.y * h)
+                cx , cy = int(lm.x* w), int(lm.y* h)
 
                 # identify id with locations in pixels
-                # print(id, cx, cy)
+                #print(id, cx, cy)
 
                 # now we will draw a circle for id 0
-                if id == 8:
-                    cv2.circle(img, (cx, cy), 20, (255, 0, 255), cv2.FILLED)
+                if id==8:
+                     cv2.circle(img, (cx , cy), 20, (255,0,255), cv2.FILLED)
 
                 # now we will draw a circle for id 4
-                if id == 12:
+                if id ==12:
                     cv2.circle(img, (cx, cy), 20, (255, 255, 0), cv2.FILLED)
 
+
             # FOR DRAWING LANDMARKS (HAND_CONNECTIONS HELP TO JOIN THE 21 POINTS TO THE RESPECTIVE POINTS)
-            mpDraw.draw_landmarks(img, handlms, mpHands.HAND_CONNECTIONS);
+            mpDraw.draw_landmarks(img,handlms,mpHands.HAND_CONNECTIONS);
 
     ctime = time.time()
-    fps = 1 / (ctime - ptime)
+    fps= 1/(ctime-ptime)
     ptime = ctime
 
     # HERE WE ARE DISPLAYING THE FPS ALONG WITH THE VIDEO
-    cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
+    cv2.putText(img, str(int(fps)), (10,70), cv2.FONT_HERSHEY_PLAIN,3,(255,0,255),3)
 
     # TO DISPLAY THE FRAME
-    cv2.imshow("Hand Detector WebCam", img);
+    cv2.imshow("Hand Detector WebCam",img);
 
     if not success:
         break;
     # IF USER PRESS  Q THEN WE HAVE TO QUIT
-    if cv2.waitKey(1) & 0xFF == ord("q"):
+    if cv2.waitKey(1) & 0xFF==ord("q"):
         break;
 
 # When Everything Done Release the capture
