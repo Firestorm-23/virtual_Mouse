@@ -4,9 +4,7 @@ This project proposes a way to control the position of the cursor with the bare 
 
 Devlop by ,
 Aniket vishwakarma
-Riya Vishwakarma
-Neeraj Kumar Yadav
-Ujwal Yadav 
+
 
 Mentor-: Vikas singh
 
